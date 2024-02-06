@@ -3,7 +3,6 @@ import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Token } from '@angular/compiler';
 
 const apiUrl = 'https://movie-mania-777.netlify.app/';
 
@@ -11,26 +10,14 @@ const apiUrl = 'https://movie-mania-777.netlify.app/';
   providedIn: 'root'
 })
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) { }
 
-  /**
-   * Making the api call for the user registration endpoint
-   * @param userDetails 
-   * @returns an observable with the user
-   */
   public userRegistration(userDetails: any): Observable<any> {
     return this.http.post(apiUrl + 'users', userDetails).pipe(
       catchError(this.handleError)
     );
   }
 
-  /**
-   * Making the api call for the user login endpoint
-   * @param userDetails 
-   * @returns an observable with the user
-   */
   public userLogin(userDetails: any): Observable<any> {
     return this.http.post(apiUrl + 'login?' + new URLSearchParams(userDetails), {}).pipe(
       catchError(this.handleError)
@@ -182,7 +169,6 @@ export class FetchApiDataService {
     return false;
   }
 
-  // Non-typed response extraction
   private extractResponseData(res: any): any {
     const body = res;
     return body || {};
@@ -197,6 +183,6 @@ export class FetchApiDataService {
         `Error body is: ${error.error}`);
     }
 
-    return throwError('Something bad happened; please try again later.');
+    return throwError('An error occured; please try again later.');
   }
 }

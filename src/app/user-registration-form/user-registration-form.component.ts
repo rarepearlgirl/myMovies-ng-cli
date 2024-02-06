@@ -24,19 +24,25 @@ export class UserRegistrationFormComponent implements OnInit {
 
   
   registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe(
-      (result) => {
-        this.dialogRef.close(); 
-        console.log(result);
-        this.snackBar.open(result, 'OK', {
-          duration: 2000,
-        });
-      },
-      (result) => {
-        this.snackBar.open(result, 'OK', {
-          duration: 2000,
-        });
+  this.fetchApiData.userRegistration(this.userData).subscribe(
+    (result) => {
+      this.dialogRef.close(); 
+      this.snackBar.open(result, 'OK', {
+        duration: 2000,
+      });
+    },
+    (error) => {
+      let errorMessage = 'Something went wrong. Please try again later.';
+      if (error.error && error.error.message) {
+        errorMessage = error.error.message;
+      } else if (error.statusText) {
+        errorMessage = error.statusText;
       }
-    );
-  }
+      this.snackBar.open(errorMessage, 'OK', {
+        duration: 2000,
+      });
+    }
+  );
+}
+
 }

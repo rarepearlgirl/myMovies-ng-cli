@@ -24,39 +24,23 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     this.getMovies();
   }
-  /**
-   * gets all movies
-   * @returns an array with all movie objects
-   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      // console.log('this.movies:', this.movies);
       return this.movies;
     });
   }
 
-  /**
-   * opens a dialog with more information about the movie's genre
-   * @param genre
-   */
   openGenreDialog(genre: any): void {
     this.dialog.open(MovieDetailsComponent, {
-      // width: '250px',
       data: {
         title: genre.name,
         content: genre.Description,
       },
     });
   }
-
-  /**
-   * opens a dialog with more information about the movie's director
-   * @param director
-   */
   openDirectorDialog(director: any): void {
     this.dialog.open(MovieDetailsComponent, {
-      // width: '250px',
       data: {
         title: director.name,
         content: director.bio,
