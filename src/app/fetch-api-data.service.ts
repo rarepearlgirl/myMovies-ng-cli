@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Token } from '@angular/compiler';
 
-const apiUrl = 'https://movie-api-wbl0.onrender.com/';
+const apiUrl = 'https://movie-mania-777.netlify.app/';
 
 @Injectable({
   providedIn: 'root'

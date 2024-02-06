@@ -9,7 +9,7 @@ import { Observable, throwError, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://movie-api-wbl0.onrender.com/';
+const apiUrl = 'https://movie-mania-777.netlify.app/';
 @Injectable({
   providedIn: 'root',
 })
