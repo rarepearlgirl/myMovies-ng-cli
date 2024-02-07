@@ -34,7 +34,7 @@ export class MovieCardComponent implements OnInit {
   openGenreDialog(genre: any): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
-        title: genre.name,
+        title: genre.Name,
         content: genre.Description,
       },
     });
@@ -42,8 +42,8 @@ export class MovieCardComponent implements OnInit {
   openDirectorDialog(director: any): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
-        title: director.name,
-        content: director.bio,
+        title: director.Name,
+        content: director.Bio,
       },
     });
   }
@@ -51,8 +51,8 @@ export class MovieCardComponent implements OnInit {
   openInfoDialog(movie: any): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
-        title: 'Info',
-        content: movie.description,
+        title: 'Description',
+        content: movie.Description,
       },
     });
   }
