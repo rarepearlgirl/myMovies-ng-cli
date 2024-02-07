@@ -26,7 +26,7 @@ export class UserLoginFormComponent implements OnInit {
 
   loginUser(): void {
     this.fetchApiData
-      .userLogin({ username: this.userData.username, password: this.userData.password })
+      .userLogin({ Name: this.userData.username, Password: this.userData.password })
 
       .subscribe(
         (result) => {
@@ -40,17 +40,11 @@ export class UserLoginFormComponent implements OnInit {
 
           this.router.navigate(['movies']);
         },
-        (error) => {
-      let errorMessage = 'An error occurred. Please try again later.';
-      if (error.error && error.error.message) {
-        errorMessage = error.error.message;
-      } else if (error.statusText) {
-        errorMessage = error.statusText;
-      }
-      this.snackBar.open(errorMessage, 'OK', {
-        duration: 5000, 
-      });
-    }
-  );
-}
+        (result) => {
+          this.snackBar.open(result, 'OK', {
+            duration: 2000,
+          });
+        }
+      );
+  }
 }

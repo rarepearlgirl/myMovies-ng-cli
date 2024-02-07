@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { MatDialogRef } from '@angular/material/dialog';
-
 import { FetchApiDataService } from '../fetch-api-data.service';
-
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -24,25 +21,18 @@ export class UserRegistrationFormComponent implements OnInit {
 
   
   registerUser(): void {
-  this.fetchApiData.userRegistration(this.userData).subscribe(
+  this.fetchApiData.userRegistration({Name: this.userData.username, Password: this.userData.password, Email: this.userData.email, Birthday: this.userData.birthday }).subscribe(
     (result) => {
-      this.dialogRef.close(); 
-      this.snackBar.open(result, 'OK', {
-        duration: 2000,
-      });
-    },
-    (error) => {
-      let errorMessage = 'Something went wrong. Please try again later.';
-      if (error.error && error.error.message) {
-        errorMessage = error.error.message;
-      } else if (error.statusText) {
-        errorMessage = error.statusText;
+        this.dialogRef.close(); 
+        this.snackBar.open(result, 'OK', {
+          duration: 2000,
+        });
+      },
+      (result) => {
+        this.snackBar.open(result, 'OK', {
+          duration: 2000,
+        });
       }
-      this.snackBar.open(errorMessage, 'OK', {
-        duration: 2000,
-      });
-    }
-  );
-}
-
+    );
+  }
 }

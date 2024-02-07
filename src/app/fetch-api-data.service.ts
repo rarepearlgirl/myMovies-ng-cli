@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'https://movie-mania-777.netlify.app/';
+const apiUrl = 'https://movie-api-wbl0.onrender.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,14 @@ export class FetchApiDataService {
   constructor(private http: HttpClient) { }
 
   public userRegistration(userDetails: any): Observable<any> {
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + 'users_add', userDetails).pipe(
       catchError(this.handleError)
     );
   }
 
   public userLogin(userDetails: any): Observable<any> {
+    console.log(33333, userDetails)
+    console.log(44444444, apiUrl + 'login?' + new URLSearchParams(userDetails))
     return this.http.post(apiUrl + 'login?' + new URLSearchParams(userDetails), {}).pipe(
       catchError(this.handleError)
     );
@@ -183,6 +185,8 @@ export class FetchApiDataService {
         `Error body is: ${error.error}`);
     }
 
-    return throwError('An error occured; please try again later.');
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 }

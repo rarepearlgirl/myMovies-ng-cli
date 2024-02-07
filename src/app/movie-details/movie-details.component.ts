@@ -12,7 +12,6 @@ import {
 })
 export class MovieDetailsComponent {
   constructor(
-    // public dialogRef: MatDialogRef<MovieDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: {
       title: string;
@@ -21,6 +20,5 @@ export class MovieDetailsComponent {
   ) {}
 
   onNoClick(): void {
-    // this.dialogRef.close();
   }
 }
