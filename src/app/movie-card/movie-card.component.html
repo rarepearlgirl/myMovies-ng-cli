@@ -34,7 +34,7 @@
         </button>
         <button
           mat-button
-          (click)= "addFavMovie(movie._id)"
+          (click)= "addFavoriteMovie(movie._id)"
           *ngIf="!isFavorite(movie._id)"
           class="heart-button"
         >
@@ -42,7 +42,7 @@
         </button>
         <button
           mat-button
-          (click)= "deleteFavMovie(movie._id)"
+          (click)= "deleteFavoriteMovie(movie._id)"
           *ngIf="isFavorite(movie._id)"
           class="heart-button"
         >

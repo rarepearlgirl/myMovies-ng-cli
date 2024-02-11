@@ -30,7 +30,8 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     const user = this.getUser();
-    this.getFavMovies();
+    // this.getFavoriteMovies();
+    this.favoriteMovies = this.getFavoriteMovies() as unknown as any[];
 
     if (!user._id) {
       this.router.navigate(['welcome']);
@@ -51,7 +52,7 @@ export class ProfilePageComponent implements OnInit {
     
   }
   updateUser(): void {
-    this.fetchApiData.editUser(this.userData).subscribe((result) => {
+    this.fetchApiData.editUser({Name: this.userData.username, Password: this.userData.password, Email: this.userData.email}).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result));
 
       this.user = result;
@@ -61,18 +62,30 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  getFavMovies(): void {
-
-    this.fetchApiData.getAllMovies().subscribe((movies) => {
-      this.favoriteMovies = movies.filter((movie: any) => {
-        return this.user.favoriteMovies?.includes(movie._id);
-      });});
-
+deleteUser(): void {
+  this.fetchApiData.deleteUser().subscribe(() => {
+      localStorage.removeItem('user');
+      this.snackBar.open('profile deleted successfully', 'OK', {
+        duration: 2000,
+      });
+    });
   }
-  deleteFavoriteMovie(favMovie: string): void {
-    this.fetchApiData.deleteFavoriteMovie(favMovie).subscribe((movie) => {
+
+  getFavoriteMovies(): void {
+
+    this.fetchApiData.getFavoriteMovies().subscribe((movies) => {
+      if(!movies || !movies.favoriteMovies) {
+        return []
+      }
+      this.favoriteMovies = movies.favoriteMovies
+      return movies.favoriteMovies
+    });
+  }
+
+  deleteFavoriteMovie(favoriteMovie: string): void {
+    this.fetchApiData.deleteFavoriteMovie(favoriteMovie).subscribe((movie) => {
       this.favoriteMovies = this.favoriteMovies.filter((movie: any) => {
-        return movie._id !== favMovie;
+        return movie._id !== favoriteMovie;
       });});
   }
 }

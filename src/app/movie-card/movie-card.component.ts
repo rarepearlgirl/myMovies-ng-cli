@@ -27,6 +27,7 @@ export class MovieCardComponent implements OnInit {
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
+      console.log('FavoriteMovies Response:', resp);
       return this.movies;
     });
   }
@@ -62,17 +63,17 @@ export class MovieCardComponent implements OnInit {
    * @param favMovieId
    * @returns a boolean, if the following movie is in the users favorite list or not
    */
-  isFavorite(favMovieId: string): boolean {
-    return this.fetchApiData.isFavoriteMovie(favMovieId);
+  isFavorite(FavoriteMovieId: string): boolean {
+    return this.fetchApiData.isFavoriteMovie(FavoriteMovieId);
   }
 
   /**
    * add a movie to users favorite list
    * @param favMovieId
    */
-  addFavMovie(favMovieId: string): void {
-    this.fetchApiData.addFavoriteMovie(favMovieId).subscribe(() => {
-      
+  addFavoriteMovie(FavoriteMovieId: string): void {
+    this.fetchApiData.addFavoriteMovie(FavoriteMovieId).subscribe(() => {
+       console.log('addfavoriteMovieId called');
 
       this.snackBar.open('added to favorites', 'OK', { duration: 2000 });
       
@@ -83,8 +84,8 @@ export class MovieCardComponent implements OnInit {
    * removes a movie from the users favorite list
    * @param favMovieId
    */
-  deleteFavMovie(favMovieId: string): void {
-    this.fetchApiData.deleteFavoriteMovie(favMovieId).subscribe(() => {
+  deleteFavoriteMovie(FavoriteMovieId: string): void {
+    this.fetchApiData.deleteFavoriteMovie(FavoriteMovieId).subscribe(() => {
       this.snackBar.open('removed movie from favorites', 'OK', {
         duration: 2000,
       });
