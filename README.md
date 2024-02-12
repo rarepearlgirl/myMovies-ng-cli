@@ -27,9 +27,9 @@ Deploy the application using the following command:
  - ng deploy --base-href=/myMovies-ng-cli/
 
 ## Author
- - rarepearlgirl
+ - [rarepearlgirl](https://github.com/rarepearlgirl)
 
 ## License
 
-This project is open-source and available under the [MIT License] (MIT License).
+This project is open-source and available under the [\[MIT License\] (MIT License).](https://opensource.org/license/mit/)
 
