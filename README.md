@@ -24,10 +24,10 @@ Welcome to myMovies-ng-cli, a portfolio project showcasing my skills in building
 ## Deployment
 Deploy the application using the following command:
 
-ng deploy --base-href=/myMovies-ng-cli/
+ - ng deploy --base-href=/myMovies-ng-cli/
 
 ## Author
-[rarepearlgirl] (rarepearlgirl)
+ - rarepearlgirl
 
 ## License
 
