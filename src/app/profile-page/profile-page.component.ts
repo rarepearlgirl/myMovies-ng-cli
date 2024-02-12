@@ -26,7 +26,7 @@ export class ProfilePageComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public router: Router,
     public snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const user = this.getUser();
@@ -47,12 +47,19 @@ export class ProfilePageComponent implements OnInit {
     };
   }
 
+  /**
+   *
+   * @returns user stored at local storage
+   */
   getUser(): User {
     return JSON.parse(localStorage.getItem('user') || '{}');
-    
+
   }
+  /**
+   * update user info
+   */
   updateUser(): void {
-    this.fetchApiData.editUser({Name: this.userData.username, Password: this.userData.password, Email: this.userData.email}).subscribe((result) => {
+    this.fetchApiData.editUser({ Name: this.userData.username, Password: this.userData.password, Email: this.userData.email }).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result));
 
       this.user = result;
@@ -62,8 +69,11 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-deleteUser(): void {
-  this.fetchApiData.deleteUser().subscribe(() => {
+  /**
+   * delete user
+   */
+  deleteUser(): void {
+    this.fetchApiData.deleteUser().subscribe(() => {
       localStorage.removeItem('user');
       this.snackBar.open('profile deleted successfully', 'OK', {
         duration: 2000,
@@ -71,10 +81,13 @@ deleteUser(): void {
     });
   }
 
+  /**
+   * gets a list of a users favorite movies
+   */
   getFavoriteMovies(): void {
 
     this.fetchApiData.getFavoriteMovies().subscribe((movies) => {
-      if(!movies || !movies.favoriteMovies) {
+      if (!movies || !movies.favoriteMovies) {
         return []
       }
       this.favoriteMovies = movies.favoriteMovies
@@ -82,10 +95,15 @@ deleteUser(): void {
     });
   }
 
+  /**
+   * removes a movie from the users list of favorite movies
+   * @param favoriteMovie 
+   */
   deleteFavoriteMovie(favoriteMovie: string): void {
     this.fetchApiData.deleteFavoriteMovie(favoriteMovie).subscribe((movie) => {
       this.favoriteMovies = this.favoriteMovies.filter((movie: any) => {
         return movie._id !== favoriteMovie;
-      });});
+      });
+    });
   }
 }

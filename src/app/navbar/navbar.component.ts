@@ -15,6 +15,9 @@ export class NavbarComponent {
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * logs out user by removing their local storage user and token
+   */
   logoutUser(): void {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
@@ -24,7 +27,12 @@ export class NavbarComponent {
     });
     this.router.navigate(['welcome']);
   }
-isUserLoggedIn(): boolean {
+
+  /**
+   *
+   * @returns a boolean if user is currently logged in, by getting 'user' from local storage
+   */
+  isUserLoggedIn(): boolean {
     const user = localStorage.getItem('user');
     return user !== null && user !== undefined;
   }

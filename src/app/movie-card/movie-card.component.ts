@@ -24,6 +24,11 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     this.getMovies();
   }
+
+  /**
+   * gets all movies
+   * @returns an array with all movie objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -31,7 +36,10 @@ export class MovieCardComponent implements OnInit {
       return this.movies;
     });
   }
-
+  /**
+   * opens a dialog with info about movie genre
+   * @param genre 
+   */
   openGenreDialog(genre: any): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
@@ -40,6 +48,11 @@ export class MovieCardComponent implements OnInit {
       },
     });
   }
+
+  /**
+   * opens a dialog with more information about the movie's director
+   * @param director
+   */
   openDirectorDialog(director: any): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
@@ -73,7 +86,7 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * add a movie to users favorite list
-   * @param favMovieId
+   * @param favoriteMovieId
    */
   addFavoriteMovie(FavoriteMovieId: string): void {
     this.fetchApiData.addFavoriteMovie(FavoriteMovieId).subscribe(() => {
@@ -85,8 +98,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * removes a movie from the users favorite list
-   * @param favMovieId
+   * 
+   * @param FavoriteMovieId 
    */
   deleteFavoriteMovie(FavoriteMovieId: string): void {
     this.fetchApiData.deleteFavoriteMovie(FavoriteMovieId).subscribe(() => {
