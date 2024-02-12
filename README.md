@@ -24,13 +24,12 @@ Welcome to myMovies-ng-cli, a portfolio project showcasing my skills in building
 ## Deployment
 Deploy the application using the following command:
 
-```bash
 ng deploy --base-href=/myMovies-ng-cli/
 
-``` Author
-rarepearlgirl
+## Author
+[rarepearlgirl] (rarepearlgirl)
 
-``` License
+## License
 
-This project is open-source and available under the (MIT License).
+This project is open-source and available under the [MIT License] (MIT License).
 
