@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    align-items: center;
     flex-direction: row;
     position: fixed;
     padding: 20px;
@@ -8,6 +9,9 @@
     z-index: 9999;
     justify-content: space-between;
     box-sizing: border-box;
+    background-color: #3c3c4152;
+    opacity: 95%;
+    color: #7d1c1c;
 }
 .navbar-items {
   display: block;
@@ -17,7 +21,11 @@
 .navbar-item {
     padding: 20px 10px ;
     margin: 20px 10px;
-    // color: black;
+}
+.navbar-a {
+    font-size: x-large;
+    text-decoration: none;
+    color: #7d1c1c;
 }
 .navbar-button {
     font-size: 30px;

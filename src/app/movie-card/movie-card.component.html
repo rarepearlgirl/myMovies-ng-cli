@@ -35,7 +35,7 @@
         <button
           mat-button
           (click)= "addFavoriteMovie(movie._id)"
-          *ngIf="!isFavorite(movie._id)"
+          *ngIf= "!isFavorite(movie._id)"
           class="heart-button"
         >
           <mat-icon>favorite_border</mat-icon>

@@ -3,9 +3,27 @@
     margin-bottom: 15px;
     align-items: center;
     justify-content: center;
+    background-color: #3c3c4152;
 }
 .details-card-content {
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 25px;
+    background-color: #3c3c4152;
+}
+
+.mdc-dialog__title {
+    color: white;
+    background-color: #474747;
+}
+
+.mdc-dialog__content {
+    color: white;
+    background-color: #474747;
+}
+
+.mat-mdc-dialog-actions {
+    justify-content: start;
+    color: white;
+    background-color: #474747;
 }

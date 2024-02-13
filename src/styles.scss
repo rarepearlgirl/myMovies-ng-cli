@@ -35,5 +35,7 @@ $myMovies-ng-cli-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+html, body { height: 100%; background-color: #212121; color: #ffffff; font-size: 18px;}
+h1 { font-size: 5em;}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
