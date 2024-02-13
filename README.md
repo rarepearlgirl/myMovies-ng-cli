@@ -3,8 +3,12 @@
 Welcome to myMovies-ng-cli, a portfolio project showcasing my skills in building Angular applications. This project serves as a client for the Movie API, displaying movie data with a user-friendly interface using Angular Material.
 
 ## Overview
+- ![app screenshot](image.png)
 - Angular Version: 17.1.2
 - Angular CLI Version: 17.1.2
+
+## Live Demo
+- [demo](https://rarepearlgirl.github.io/myMovies-ng-cli/movies)
 
 ## Project Highlights
 - **One-Page Layout**: The application follows a one-page layout, providing a seamless and intuitive user experience.
