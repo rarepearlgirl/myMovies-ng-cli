@@ -75,6 +75,10 @@ align-items: center;
     display: grid;
     justify-content: center;
     align-items: center; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    justify-content: space-around;
+    align-items: center;
 }
 
 .fav-movies-item{
@@ -158,27 +162,17 @@ align-items: center;
 @media  (min-width:700px){
 
     .fav-movies-wrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    justify-content: space-around;
-    align-items: center;
+    margin: 0 10px;
   }
 
   @media  (min-width:1300px){
-
     .fav-movies-wrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    justify-content: space-around;
-    align-items: center;
+    margin: 0 20px;
   }
-  @media  (min-width:1600px){
 
+  @media  (min-width:1600px){
     .fav-movies-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    justify-content: space-around;
-    align-items: center; 
+    margin: 0 30px;
     }
   }
 }
