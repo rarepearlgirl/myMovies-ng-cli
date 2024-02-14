@@ -1,9 +1,12 @@
 <!--src/app/user-registration-form/user-registration-form.component.html-->
 <div mat-card class="form-wrapper">
-  <div mat-card-content class="form">
+  <div mat-card-content class="form form-component">
+    <h2 class="user-details-head">Update User data</h2>
+    <div class="inputs-wrapper">
     <div mat-form-field class="form-item">
-      <legend>required field:</legend>
+      <legend>Username:</legend>
       <input
+        class="input-form-item"
         [(ngModel)]= "userData.username"
         matinput
         placeholder="new username"
@@ -14,8 +17,9 @@
     </div>
 
     <div mat-form-field class="form-item">
-      <legend>required field:</legend>
+      <legend>Password:</legend>
       <input
+        class="input-form-item"
         [(ngModel)]= "userData.password"
         matinput
         placeholder="new password"
@@ -26,8 +30,9 @@
     </div>
 
     <div mat-form-field class="form-item">
-      <legend>required field:</legend>
+      <legend>Email:</legend>
       <input
+        class="input-form-item"
         [(ngModel)]= "userData.email"
         matinput
         placeholder="new email"
@@ -36,7 +41,7 @@
         required
       />
     </div>
-
+    </div>
     <button mat-raised-button (click)= "updateUser()" color="primary">
       submit
     </button>
@@ -45,7 +50,7 @@
     </button>
   </div>
   <div class="fav-movies">
-    <p class="fav-movies-title">{{ user.username }}'s Favorite Movies</p>
+    <h2 class="fav-movies-title">Your Favorite Movies</h2>
     
     <div *ngIf= "favoriteMovies.length" class="fav-movies-wrapper">
       <div *ngFor= "let favoriteMovie of favoriteMovies" class="fav-movies-item">
