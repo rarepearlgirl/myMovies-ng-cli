@@ -44,15 +44,16 @@
       Delete Account
     </button>
   </div>
-  <div class="favMovies">
-    <p class="favMovies-title">{{ user.username }}'s Favorite Movies</p>
-    <div *ngIf= "favoriteMovies.length">
-      <div *ngFor= "let favoriteMovie of favoriteMovies" class="favMovies-item">
-        <img [src]= "favoriteMovie.ImagePath" alt="Movie Poster" style="width: 200px; height: auto;">
+  <div class="fav-movies">
+    <p class="fav-movies-title">{{ user.username }}'s Favorite Movies</p>
+    
+    <div *ngIf= "favoriteMovies.length" class="fav-movies-wrapper">
+      <div *ngFor= "let favoriteMovie of favoriteMovies" class="fav-movies-item">
+        <img [src]= "favoriteMovie.ImagePath" alt="Movie Poster">
         {{ favoriteMovie.Title }}
         <button
           (click)= "deleteFavoriteMovie(favoriteMovie._id)"
-          mat-raised-button
+          mat-button
           color="primary"
         >
           Remove
