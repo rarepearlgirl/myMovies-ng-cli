@@ -72,13 +72,19 @@ export class ProfilePageComponent implements OnInit {
   /**
    * delete user
    */
+ 
   deleteUser(): void {
-    this.fetchApiData.deleteUser().subscribe(() => {
-      localStorage.removeItem('user');
-      this.snackBar.open('profile deleted successfully', 'OK', {
-        duration: 2000,
+    if(confirm('Do you want to delete your account permanently?')) {
+      this.router.navigate(['welcome']).then(() => {
+        localStorage.clear();
+        this.snackBar.open('Your account has been deleted', 'OK', {
+          duration: 3000
+        });
+      })
+      this.fetchApiData.deleteUser().subscribe((result) => {
+        console.log(result);
       });
-    });
+    }
   }
 
   /**
