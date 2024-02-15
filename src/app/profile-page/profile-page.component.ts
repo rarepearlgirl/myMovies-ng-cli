@@ -72,7 +72,6 @@ export class ProfilePageComponent implements OnInit {
   /**
    * delete user
    */
- 
   deleteUser(): void {
     if(confirm('Do you want to delete your account permanently?')) {
       this.router.navigate(['welcome']).then(() => {

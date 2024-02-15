@@ -73,7 +73,7 @@ export class FetchApiDataService {
     );
   }
 
-  getUser(userName: string): Observable<any> {
+  getOneUser(userName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
       .get(apiUrl + 'users/' + userName, {
