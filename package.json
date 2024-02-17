@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:myMovies-ng-cli": "node dist/my-movies-ng-cli/server/server.mjs",
-    "typedoc":"typedoc --exclude **/*.spec.ts --out docs/typedoc --entryPointStrategy expand src/app"
-    
+    "typedoc": "typedoc --exclude **/*.spec.ts --out docs/typedoc --entryPointStrategy expand src/app"
   },
   "private": true,
   "dependencies": {
