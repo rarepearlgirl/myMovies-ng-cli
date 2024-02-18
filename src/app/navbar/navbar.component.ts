@@ -16,7 +16,7 @@ export class NavbarComponent {
   ) {}
 
   /**
-   * logs out user by removing their local storage user and token
+   * @logout user by removing their local storage user and token
    */
   logoutUser(): void {
     localStorage.removeItem('user');

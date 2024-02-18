@@ -11,6 +11,23 @@ Welcome to myMovies-ng-cli, a portfolio project showcasing my skills in building
 ## Live Demo
 - [demo](https://rarepearlgirl.github.io/myMovies-ng-cli/movies)
 
+## Views
+
+### Main View 
+  - Returns a list of movies to the user
+  - Displays director and genre details, and synopsis of each movie
+  
+### Profile
+  - Displays user registration details
+  - Allows users to update their info (username, email, date of birth)
+  - Allows existing users to deregister
+  - Displays favorite movies
+  - Allows users to remove a movie from their list of favorites
+
+### Welcome View 
+  - Allows users to  log in or signup
+
+
 ## Project Highlights
 - **One-Page Layout**: The application follows a one-page layout, providing a seamless and intuitive user experience.
 - **Google Material Design**: Leveraging Angular Material for a visually appealing and responsive design.

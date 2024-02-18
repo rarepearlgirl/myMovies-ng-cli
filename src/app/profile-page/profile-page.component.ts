@@ -56,7 +56,7 @@ export class ProfilePageComponent implements OnInit {
 
   }
   /**
-   * update user info
+   * @update user info
    */
   updateUser(): void {
     this.fetchApiData.editUser({ Name: this.userData.username, Password: this.userData.password, Email: this.userData.email }).subscribe((result) => {
